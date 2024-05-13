@@ -140,6 +140,42 @@ func TestReturnErrorWhenWaitWithFreeComputerAvailable(t *testing.T) {
 	}
 }
 
+// TestAutoSelectFromQueue runs test of a program,
+// where it tests algorithm of auto pick client from queue where there is a free computer
+func TestAutoSelectFromQueue(t *testing.T) {
+	buff := new(bytes.Buffer)
+	fileName := "autoSelectFromQueue.txt"
+	defer buff.Reset()
+
+	err := runWithGivenInput(inputDataPath+fileName, buff)
+	if err != nil {
+		t.Fatalf("TestReturnErrorWhenWaitWithFreeComputerAvailable: %s", err.Error())
+	}
+
+	err = compareOutput(outputDataPath+fileName, buff)
+	if err != nil {
+		t.Fatalf("TestReturnErrorWhenWaitWithFreeComputerAvailable: %s", err.Error())
+	}
+}
+
+// TestAutoCloseSessions runs test of a program,
+// where it tests algorithm of auto close of session at the end of work
+func TestAutoCloseSessions(t *testing.T) {
+	buff := new(bytes.Buffer)
+	fileName := "autoCloseSessions.txt"
+	defer buff.Reset()
+
+	err := runWithGivenInput(inputDataPath+fileName, buff)
+	if err != nil {
+		t.Fatalf("TestReturnErrorWhenWaitWithFreeComputerAvailable: %s", err.Error())
+	}
+
+	err = compareOutput(outputDataPath+fileName, buff)
+	if err != nil {
+		t.Fatalf("TestReturnErrorWhenWaitWithFreeComputerAvailable: %s", err.Error())
+	}
+}
+
 func runWithGivenInput(inputFilePath string, buff *bytes.Buffer) error {
 	var in *bufio.Reader
 	var out *bufio.Writer
