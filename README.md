@@ -9,24 +9,24 @@ Currently suited for file input and command line output.
 
 ### Build executable file
 ```
-> go build -o task ./cmd/main.go
+go build -o task ./cmd/main.go
 ```
 ### Run it
 ```
-> task {some-filename}
+task {some-filename}
 ```
 
 ## Deployment via docker
 
 ### Build docker image
 ```
-> docker build -t computer-club-manager:0.1.0 -f ./build/computer-club-manager.dockerfile .
+docker build -t computer-club-manager:0.1.0 -f ./build/computer-club-manager.dockerfile .
 ```
 
 ### Run image
 Via env variable `filepath` you can define input file for app.
 ```
-> docker run --name computer-club-manager -e filepath={some-file-path} computer-club-manager:0.1.0
+docker run --name computer-club-manager -e filepath={some-file-path} computer-club-manager:0.1.0
 ```
 
 ## Tests
